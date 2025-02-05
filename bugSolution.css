@@ -1,0 +1,50 @@
+To solve this issue, you can use an explicit selector or combine inheritance with more specific selectors. Here are two potential solutions:
+
+**Solution 1 (Explicit Selector):**
+
+Avoid using `inherit` and explicitly specify the color for the `.special-paragraph` class:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green;
+}
+
+.special-paragraph {
+  color: green; /* Explicitly set the color to match the most specific selector */
+}
+```
+
+**Solution 2 (Combine inheritance with more specific selectors):**
+
+Make `.special-paragraph` inherit the color from its parent div and then override it using a more specific selector to ensure the intended color green:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green;
+}
+
+div .special-paragraph {
+  color: inherit; /* Inherit from div, then a more specific selector will override */
+}
+.special-paragraph {
+  color: green; /* This will override the color inherited from div only when the paragraph is directly in div*/
+}
+```
+
+By understanding and correctly managing the interplay of specificity and inheritance, you can avoid these subtle CSS issues.
